@@ -23,3 +23,5 @@ rootProject.name = "TestForEffectiveMobile"
 include(":app")
 include(":core_ui")
 include(":feature_onboarding")
+include(":core_navigation")
+include(":core_di")

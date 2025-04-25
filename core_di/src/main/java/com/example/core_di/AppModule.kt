@@ -1,0 +1,17 @@
+package com.example.core_di
+
+import com.example.core_navigation.AppNavigator
+import com.example.core_navigation.Navigator
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+    @Provides
+    @Singleton
+    fun provideNavigator(): Navigator = AppNavigator()
+}
