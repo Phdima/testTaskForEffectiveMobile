@@ -44,6 +44,7 @@ dependencies {
 
     //modules
     implementation(project(":core_ui"))
+    implementation(project(":core_navigation"))
 
     //core
     implementation(libs.hilt.android)

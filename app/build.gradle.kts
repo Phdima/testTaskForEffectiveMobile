@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -47,6 +48,7 @@ dependencies {
     implementation(project(":core_navigation"))
     implementation(project(":core_ui"))
     implementation(project(":feature_onboarding"))
+    implementation(project(":feature_login"))
 
     //core
 

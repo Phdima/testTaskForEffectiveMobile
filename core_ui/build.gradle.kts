@@ -41,6 +41,9 @@ android {
 }
 
 dependencies {
+    
+    //modules
+    implementation(project(":core_navigation"))
 
     //core
     implementation(libs.androidx.core.ktx)

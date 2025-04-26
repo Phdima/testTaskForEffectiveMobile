@@ -3,6 +3,7 @@ package com.example.core_navigation
 import androidx.compose.runtime.mutableStateOf
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import javax.inject.Inject
 
 interface Navigator {
     fun navigate(route: String)
@@ -10,7 +11,7 @@ interface Navigator {
     fun setGraph(graph: NavGraphBuilder.() -> Unit)
 }
 
-class AppNavigator : Navigator {
+class AppNavigator @Inject constructor() : Navigator {
     private val navController = mutableStateOf<NavController?>(null)
 
     override fun navigate(route: String) {

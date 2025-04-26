@@ -11,22 +11,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Grey,
+    inversePrimary = LightGrey,
+    secondary = Green,
+    onPrimary = White,
+    background = Black,
+    onTertiary = DarkGrey,
+    primaryContainer = Blue,
+    secondaryContainer = Orange
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
+    primary = Grey,
+    inversePrimary = LightGrey,
+    secondary = Green,
+    onPrimary = White,
+    background = Black,
+    onTertiary = DarkGrey,
+    primaryContainer = Blue,
+    secondaryContainer = Orange
 )
 
 @Composable
 fun Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -41,6 +50,7 @@ fun Theme(
 
     MaterialTheme(
         colorScheme = colorScheme,
+        typography = Typography,
         content = content
     )
 }
