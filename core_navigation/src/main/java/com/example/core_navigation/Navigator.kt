@@ -1,8 +1,12 @@
 package com.example.core_navigation
 
+import android.annotation.SuppressLint
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 
 interface Navigator {

@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/core_navigation" />
             <option value="$PROJECT_DIR$/core_ui" />
             <option value="$PROJECT_DIR$/feature_login" />
+            <option value="$PROJECT_DIR$/feature_main_content" />
             <option value="$PROJECT_DIR$/feature_onboarding" />
           </set>
         </option>
