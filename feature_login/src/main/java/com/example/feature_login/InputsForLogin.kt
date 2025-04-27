@@ -29,7 +29,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun InputsForLogin(modifier: Modifier) {
-    var text by remember { mutableStateOf("") }
+    var textEmail by remember { mutableStateOf("") }
+    var textPassword by remember { mutableStateOf("") }
+
+    val emailRegex = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\$")
 
     Column(
         modifier = modifier
@@ -38,8 +41,10 @@ fun InputsForLogin(modifier: Modifier) {
         Text(text = "Email", fontSize = 16.sp, color = MaterialTheme.colorScheme.onPrimary)
 
         TextField(
-            value = text,
-            onValueChange = { text = it },
+            value = textEmail,
+            onValueChange = { newText ->
+                textEmail = newText
+                },
             placeholder = {
                 Text(
                     "example@gmail.com",
@@ -62,14 +67,15 @@ fun InputsForLogin(modifier: Modifier) {
             singleLine = true,
             modifier = Modifier
                 .clip(RoundedCornerShape(50.dp))
+                .fillMaxWidth()
         )
 
 
         Text(text = "Пароль", fontSize = 16.sp, color = MaterialTheme.colorScheme.onPrimary)
 
         TextField(
-            value = text,
-            onValueChange = { text = it },
+            value = textPassword,
+            onValueChange = { textPassword = it },
             placeholder = {
                 Text(
                     "Введите пароль",
@@ -92,6 +98,7 @@ fun InputsForLogin(modifier: Modifier) {
             singleLine = true,
             modifier = Modifier
                 .clip(RoundedCornerShape(50.dp))
+                .fillMaxWidth()
         )
 
     }

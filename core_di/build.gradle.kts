@@ -35,10 +35,17 @@ android {
 
 dependencies {
 
+    implementation(project(":core_network"))
     //modules
     implementation(project(":core_navigation"))
 
     //core
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.moshi.kotlin)
+    kapt(libs.moshi.kotlin.codegen)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
     api(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)

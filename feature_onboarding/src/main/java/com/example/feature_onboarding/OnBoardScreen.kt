@@ -43,6 +43,14 @@ fun OnBoardScreen(navigator: Navigator) {
                 .height(316.dp)
                 .align(Alignment.Center)
         )
-        GreenNavButton(modifier = Modifier.width(328.dp).align(Alignment.BottomCenter).offset(y = -56.dp), navigator = navigator, text = "Продолжить")
+        GreenNavButton(
+            modifier = Modifier
+                .width(328.dp)
+                .align(Alignment.BottomCenter)
+                .offset(y = -56.dp),
+            navigator = navigator,
+            destination = "login",
+            text = "Продолжить"
+        )
     }
 }

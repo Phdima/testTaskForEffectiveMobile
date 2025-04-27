@@ -1,5 +1,10 @@
 package com.example.feature_login
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,6 +35,7 @@ import com.example.core_ui.components.GreenNavButton
 
 @Composable
 fun LoginScreen(navigator: Navigator) {
+    val context = LocalContext.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -46,6 +53,7 @@ fun LoginScreen(navigator: Navigator) {
                 .padding(start = 20.dp, end = 20.dp, top = 376.dp)
                 .fillMaxWidth(),
             navigator = navigator,
+            destination = "main",
             text = "Вход"
         )
         Column(
@@ -104,7 +112,9 @@ fun LoginScreen(navigator: Navigator) {
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 Button(
-                    onClick = {},
+                    onClick = {    val url = "https://vk.com"
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        context.startActivity(intent) },
                     modifier = Modifier
                         .width(156.dp)
                         .height(40.dp),
@@ -119,12 +129,16 @@ fun LoginScreen(navigator: Navigator) {
                         tint = Color.Unspecified,
                         modifier = Modifier
                             .size(48.dp)
-                            .align(alignment = Alignment.CenterVertically)
-                            .clickable { },
+                            .align(alignment = Alignment.CenterVertically),
                     )
                 }
+
                 Button(
-                    onClick = {},
+                    onClick = {
+                        val url = "https://ok.ru"
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        context.startActivity(intent)
+                    },
                     modifier = Modifier
                         .width(156.dp)
                         .height(40.dp),
@@ -139,11 +153,23 @@ fun LoginScreen(navigator: Navigator) {
                         tint = Color.Unspecified,
                         modifier = Modifier
                             .size(48.dp)
-                            .align(alignment = Alignment.CenterVertically)
-                            .clickable { },
+                            .align(alignment = Alignment.CenterVertically),
                     )
                 }
             }
         }
+    }
+}
+
+private fun openUrl(context: Context, url: String) {
+    try {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        context.startActivity(intent)
+    } catch (e: ActivityNotFoundException) {
+        Toast.makeText(
+            context,
+            "Не удалось открыть браузер",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

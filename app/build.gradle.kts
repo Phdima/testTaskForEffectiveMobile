@@ -39,20 +39,26 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
 }
 
 dependencies {
 
+    implementation(project(":core_network"))
     //modules
     implementation(project(":core_di"))
     implementation(project(":core_navigation"))
     implementation(project(":core_ui"))
     implementation(project(":feature_onboarding"))
     implementation(project(":feature_login"))
-
+    implementation(project(":feature_main_content"))
+    
     //core
-
-    implementation(libs.hilt.android)
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.material3)
+    implementation (libs.hilt.android)
     kapt (libs.dagger.hilt.compiler)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
