@@ -21,7 +21,7 @@ import com.example.feature_onboarding.ComponentsForScreen.InfiniteScrollingRows
 
 
 @Composable
-fun OnBoardScreen(navigator: Navigator) {
+fun OnBoardScreen(navigator: Navigator,onCompleted: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -44,6 +44,7 @@ fun OnBoardScreen(navigator: Navigator) {
                 .align(Alignment.Center)
         )
         GreenNavButton(
+            onCompleted = { onCompleted() },
             modifier = Modifier
                 .width(328.dp)
                 .align(Alignment.BottomCenter)

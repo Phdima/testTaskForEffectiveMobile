@@ -49,6 +49,7 @@ fun LoginScreen(navigator: Navigator) {
         )
         InputsForLogin(modifier = Modifier.padding(top = 204.dp, start = 16.dp, end = 16.dp))
         GreenNavButton(
+            onCompleted = {},
             modifier = Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 376.dp)
                 .fillMaxWidth(),
