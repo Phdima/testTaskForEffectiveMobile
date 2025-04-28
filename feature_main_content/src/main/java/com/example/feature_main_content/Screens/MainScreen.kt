@@ -45,6 +45,7 @@ fun MainScreen() {
     var textForTextField by remember { mutableStateOf("") }
     val viewModel: CoursesViewModel = hiltViewModel()
     val courses by viewModel.courses.collectAsState()
+    val sortOrder by viewModel.sortOrder.collectAsState()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -127,7 +128,7 @@ fun MainScreen() {
                         fontSize = 16.sp,
                         modifier = Modifier
                             .clickable {
-                                courses.sortedByDescending { course -> course.publishDate }
+                                viewModel.toggleSortOrder()
                             }
                             .padding(4.dp)
                     )

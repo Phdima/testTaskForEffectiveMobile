@@ -15,11 +15,20 @@ import androidx.compose.ui.unit.dp
 import com.example.core_navigation.Navigator
 
 @Composable
-fun GreenNavButton(navigator: Navigator, destination: String, modifier: Modifier, text: String) {
+fun GreenNavButton(
+    onCompleted: () -> Unit,
+    navigator: Navigator,
+    destination: String,
+    modifier: Modifier,
+    text: String
+) {
 
 
     Button(
-        onClick = { navigator.navigate(destination) },
+        onClick = {
+            onCompleted()
+            navigator.navigate(destination)
+        },
         modifier = modifier
             .height(40.dp),
         colors = ButtonColors(

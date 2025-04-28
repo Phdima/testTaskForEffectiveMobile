@@ -153,7 +153,7 @@ fun CourseCard(
                     .fillMaxWidth(),
                 fontSize = 12.sp,
                 maxLines = 2,
-                color = MaterialTheme.colorScheme.onTertiary
+                color = MaterialTheme.colorScheme.onPrimary
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
