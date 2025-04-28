@@ -1,7 +1,7 @@
 package com.example.feature_main_content
 
-import com.example.core_retrofit.ApiService
-import com.example.core_retrofit.Course
+import com.example.core_network.ApiService
+import com.example.core_network.Course
 import javax.inject.Inject
 
 class CoursesUseCase @Inject constructor(

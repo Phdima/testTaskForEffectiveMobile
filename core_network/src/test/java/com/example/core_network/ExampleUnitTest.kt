@@ -1,4 +1,4 @@
-package com.example.core_retrofit
+package com.example.core_network
 
 import org.junit.Test
 

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core_retrofit"
+    namespace = "com.example.core_network"
     compileSdk = 35
 
     defaultConfig {

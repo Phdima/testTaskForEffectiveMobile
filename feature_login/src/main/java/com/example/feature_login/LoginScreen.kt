@@ -112,9 +112,17 @@ fun LoginScreen(navigator: Navigator) {
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 Button(
-                    onClick = {    val url = "https://vk.com"
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        context.startActivity(intent) },
+                    onClick = {
+                        try {
+                            val url = "https://vk.com"
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                            }
+                            context.startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(context, "No browser installed", Toast.LENGTH_SHORT).show()
+                        }
+                    },
                     modifier = Modifier
                         .width(156.dp)
                         .height(40.dp),
@@ -135,9 +143,15 @@ fun LoginScreen(navigator: Navigator) {
 
                 Button(
                     onClick = {
-                        val url = "https://ok.ru"
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        context.startActivity(intent)
+                        try {
+                            val url = "https://ok.ru"
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                            }
+                            context.startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(context, "No browser installed", Toast.LENGTH_SHORT).show()
+                        }
                     },
                     modifier = Modifier
                         .width(156.dp)
@@ -158,18 +172,5 @@ fun LoginScreen(navigator: Navigator) {
                 }
             }
         }
-    }
-}
-
-private fun openUrl(context: Context, url: String) {
-    try {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        context.startActivity(intent)
-    } catch (e: ActivityNotFoundException) {
-        Toast.makeText(
-            context,
-            "Не удалось открыть браузер",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 }
