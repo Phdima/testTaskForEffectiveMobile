@@ -1,4 +1,4 @@
-package com.example.core_retrofit
+package com.example.core_network
 
 data class CoursesResponse(
     val courses: List<Course>

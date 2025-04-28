@@ -1,6 +1,6 @@
 package com.example.core_di
 
-import com.example.core_retrofit.ApiService
+import com.example.core_network.ApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
